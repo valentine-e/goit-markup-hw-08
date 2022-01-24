@@ -1,0 +1,113 @@
+/* Примеры портфолио */
+
+.portfolio-card {
+  &:focus,
+  &:hover {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+    transition: box-shadow 250ms var(--timing-function);
+  }
+}
+
+.portfolio-card__image {
+  width: 100%;
+  z-index: -1;
+  position: relative;
+}
+
+.portfolio-card__link {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio-card {
+    margin: 0 auto;
+    max-width: 450px;
+
+    &:not(:last-child) {
+      margin: 0 0 30px;
+    }
+  }
+}
+
+.portfolio-card__description {
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-card__info {
+  flex-grow: 1;
+  border-left: 1px solid #eeeeee;
+  border-right: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  padding: 20px 24px;
+}
+
+.portfolio-card__title {
+  color: var(--primary-text-color);
+
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+
+.portfolio-card__label {
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.03em;
+  color: var(--secondary-text-color);
+  margin-top: 4px;
+}
+.portfolio-card__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+
+  padding: 24px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--white-text-color);
+
+  transform: translateY(101%);
+  transition: transform 250ms var(--timing-function);
+
+  .portfolio-card__link:hover &,
+  .portfolio-card__link:focus & {
+    transform: translateY(0);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .portfolio {
+    display: flex;
+
+    flex-wrap: wrap;
+    margin-left: -30px;
+    margin-top: -30px;
+  }
+
+  .portfolio-card {
+    flex-basis: calc((100% - 30px * 2) / 2);
+    margin-left: 30px;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .portfolio-card {
+    flex-basis: calc((100% - 3 * 30px) / 3);
+  }
+}

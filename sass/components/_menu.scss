@@ -1,0 +1,128 @@
+.mobile-open {
+    overflow: hidden;
+}
+
+.menu-button {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    z-index: 2;
+
+    .icon-close {
+        display: none;
+    }
+}
+
+.menu-button.is-open .icon-close {
+    display: block;
+}
+
+.menu-button.is-open .icon-menu {
+    display: none;
+}
+
+.menu-social {
+    display: none;
+}
+
+.site-nav__link.site-nav__link--active {
+    color: var(--accent-color);
+}
+
+@media screen and (max-width: 767px) {
+    .mobile-menu {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 48px 40px;
+        background-color: var(--primary-background-color);
+
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: transform 250ms var(--timing-function), opacity 250ms var(--timing-function);
+
+        &.is-open {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+    }
+
+    .site-nav__link {
+        color: var(--primary-text-color);
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 1.17;
+        text-align: center;
+        letter-spacing: 0.02em;
+    }
+
+    .site-nav__item:not(:last-child) {
+        margin-bottom: 32px;
+    }
+
+    .header-contacts {
+        margin-bottom: 64px;
+    }
+
+    .header-contacts__link {
+        line-height: 1.17;
+        letter-spacing: 0.02em;
+        font-weight: 500;
+
+        &--number {
+            color: var(--accent-color);
+
+            font-size: 40px;
+        }
+
+        &--email {
+            color: var(--secondary-text-color);
+            font-size: 24px;
+        }
+
+        .header-contacts__icon {
+            display: none;
+        }
+    }
+
+    .header-contacts__item:not(:last-child) {
+        margin-bottom: 32px;
+    }
+
+    .menu-social {
+        display: flex;
+        margin-left: -10px;
+    }
+
+    .menu-social__item {
+        &:not(:last-child) {
+            border-right: 1px solid rgba(33, 33, 33, 0.2);
+        }
+    }
+
+    .menu-social__link {
+        color: var(--accent-color);
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 1.2;
+        padding: 0 10px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .mobile-menu {
+        display: flex;
+    }
+
+    .menu-button {
+        display: none;
+    }
+}
